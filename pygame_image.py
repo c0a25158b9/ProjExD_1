@@ -22,17 +22,22 @@ def main():
         
         key_lst = pg.key.get_pressed() #練習10
         # print(key_lst)
-        if key_lst[pg.K_RIGHT] == False:
-            kk_rct.move_ip((-1, 0))
-        if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0, -1))
-        if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, +1))
-        if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1, 0))
-        if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((+1, 0))
 
+        #演習課題２
+        x = 0 
+        y = 0
+        if key_lst[pg.K_RIGHT] == False: #演習課題１
+            x = -1
+
+        if key_lst[pg.K_UP]:
+            y = -1
+        if key_lst[pg.K_DOWN]:
+            y = +1
+        if key_lst[pg.K_LEFT]:
+            x = -1
+        if key_lst[pg.K_RIGHT]:
+            x = +1
+        kk_rct.move_ip((x,y))
 
         x = tmr%3200 #練習５ #練習９ %3200追加
         screen.blit(bg_img, [-x, 0]) #練習２
