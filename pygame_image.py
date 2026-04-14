@@ -12,17 +12,20 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg") #練習１
     kk_img = pg.image.load("fig/3.png") #練習３
     kk_img = pg.transform.flip(kk_img, True, False) #練習３ 反転
+    bg_img2 = pg.transform.flip(bg_img, True, False) #練習８ 反転
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         
-        x = tmr 
+        x = tmr%3200 #練習５ #練習９ %3200追加
         screen.blit(bg_img, [-x, 0]) #練習２
+        screen.blit(bg_img2, [-x+1600, 0]) #練習７　こちらを先に書かないとこうかとん消える
+        screen.blit(bg_img, [-x+3200, 0])
         screen.blit(kk_img, [300, 200]) #練習４
         pg.display.update()
         tmr += 1        
-        clock.tick(200)
+        clock.tick(200) #練習６
 
 
 if __name__ == "__main__":
